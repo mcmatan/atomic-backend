@@ -1,8 +1,23 @@
+import {resetDb} from "./utils/resetDb";
+import {workflowService} from "../src/service/workflowRunner";
+import {getAllWorkflows} from "../src/db/getAllWorkflows";
+
 describe('work flow runner', () => {
+    beforeEach(async () => {
+        await resetDb();
+    })
     describe('runWorkflow()', () => {
         describe('Given called with workflow with 1 step', () => {
-            it('should create a new job and step', () => {
-
+            beforeEach(async () => {
+                await workflowService.runWorkflow({
+                    userId: 'userId', workflowName: 'workflowName', idempotencyKey: 'idempotencyKey', stepId: 'stepId', url: 'url'
+                })
+            })
+            it('should create a new job and step', async () => {
+                const jobs = await getAllWorkflows();
+                const firstJob = jobs[0];
+                expect(jobs).toHaveLength(1);
+                expect(firstJob.url).toEqual('url');
             });
             it('should call the client back using the workflow step url', () => {
 

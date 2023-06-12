@@ -11,6 +11,9 @@ const config: Config.InitialOptions = {
   resetModules: true,
   testMatch: ['**/*.spec.ts'],
   testTimeout: 10000,
+  moduleNameMapper: {
+    "axios": "axios/dist/node/axios.cjs"
+  }
 };
 
 export default config;
