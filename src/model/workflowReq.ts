@@ -1,3 +1,3 @@
 export interface WorkflowRunnerReq {
-    userId: string, workflowName: string, idempotencyKey: string, stepId: string, url: string
+    userId: string, workflowName: string, idempotencyKey: string, stepName: string, url: string
 }

@@ -34,5 +34,6 @@ model Step {
   url            String
   scheduleDate   DateTime?
   result            Json?
+  name             String
   completedDate  DateTime?
 }

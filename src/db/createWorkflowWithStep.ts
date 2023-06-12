@@ -22,6 +22,7 @@ export async function createWorkflowWithStep(workflowRunnerReq: WorkflowRunnerRe
         await transaction.step.create({
             data: {
                 url: workflowRunnerReq.url,
+                name: workflowRunnerReq.stepName,
                 workflow: { connect: { id: workflow.id } },
             },
         });
