@@ -7,7 +7,7 @@
     "prisma:migration:create": "npx prisma migrate dev --create-only --name $1",
     "prisma:migration:deploy": "npx prisma migrate deploy",
     "prisma:client:generate": "npx prisma generate",
-    "test": "DATABASE_URL=postgresql://prisma:prisma@localhost:5432/tests npm run test:jest",
+    "test": "DATABASE_URL=postgresql://prisma:prisma@localhost:5432/tests test ./__tests__/",
     "docker-compose:up": "docker-compose up -d",
     "local-setup": "npm run docker-compose:up"
   },
